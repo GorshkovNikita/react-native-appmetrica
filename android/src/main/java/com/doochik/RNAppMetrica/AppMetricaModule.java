@@ -40,6 +40,19 @@ public class AppMetricaModule extends ReactContextBaseJavaModule {
             YandexMetrica.enableActivityAutoTracking(application);
         }
     }
+	
+    @ReactMethod
+    public void activateWithApiKeyAndFirstLaunch(String key, boolean firstLaunch) {
+        YandexMetricaConfig.Builder configBuilder = YandexMetricaConfig.newConfigBuilder(key);
+        configBuilder.handleFirstActivationAsUpdate(!firstLaunch);
+        YandexMetrica.activate(getReactApplicationContext().getApplicationContext(), configBuilder.build());
+
+        Activity activity = getCurrentActivity();
+        if (activity != null) {
+            Application application = activity.getApplication();
+            YandexMetrica.enableActivityAutoTracking(application);
+        }
+    }
 
     @ReactMethod
     public void reportError(String message) {
