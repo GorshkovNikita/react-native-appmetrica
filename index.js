@@ -12,6 +12,10 @@ export default {
     activateWithApiKey(apiKey: string) {
         AppMetrica.activateWithApiKey(apiKey);
     },
+    
+    activateWithApiKeyAndFirstLaunch(apiKey: string, isFirstLaunch: boolean) {
+        AppMetrica.activateWithApiKey(apiKey);
+    }
 
     /**
      * Sends a custom event message and additional parameters (optional).
