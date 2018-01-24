@@ -14,7 +14,7 @@ export default {
     },
     
     activateWithApiKeyAndFirstLaunch(apiKey: string, isFirstLaunch: boolean) {
-        AppMetrica.activateWithApiKey(apiKey);
+        AppMetrica.activateWithApiKeyAndFirstLaunch(apiKey, isFirstLaunch);
     },
 
     /**
